@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mio</title>
+    <!-- Importation de la police Quicksand depuis Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Lien vers votre feuille de style personnalisée -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Ajout de la favicon -->
+    <link rel="icon" type="image/png" href="images\miohome.png">
+</head>
+<body>
+
+    <!-- Conteneur pour l'animation d'arrière-plan -->
+    <div class="background-container">
+        <div class="shooting-stars"></div>
+    </div>
+
+    <div id="gallery-overlay" class="gallery-overlay"></div>
+
+    <!-- Élément audio pour le son de clic sur les boutons -->
+    <audio id="click-sound">
+        <source src="https://www.soundjay.com/buttons/sounds/button-30.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="app">
+
+        <header class="main-header">
+            <nav class="main-nav container">
+                <a href="#" class="logo-link">
+                    <img src="images\miohome.png" alt="Mio Logo" class="logo-img">
+                    <span>Mio</span>
+                </a>
+
+                <!-- Menu pour ordinateur -->
+                <div class="desktop-menu">
+                    <button data-page="home" class="nav-button active">Home</button>
+                    <button data-page="gallery" class="nav-button">Gallery</button>
+                </div>
+
+                <!-- Bouton Hamburger pour mobile -->
+                <div class="hamburger-container">
+                    <button id="hamburger-button">
+                        <svg id="hamburger-icon" class="hamburger-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        <svg id="close-icon" class="hamburger-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </nav>
+            
+            <!-- Menu Mobile -->
+            <div id="mobile-menu">
+                <div class="mobile-menu-content">
+                    <button data-page="home" class="nav-button active">Home</button>
+                    <button data-page="gallery" class="nav-button">Gallery</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Conteneur principal -->
+        <main id="content-area" class="container main-content">
+            <!-- Le contenu sera injecté ici par JavaScript -->
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2025 Mio. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Lecteur radio Lo-Fi -->
+    <div id="lofi-player">
+        <div id="youtube-player"></div>
+    </div>
+
+    <!-- Le script de l'API YouTube a été retiré d'ici -->
+    <!-- Votre script est maintenant le seul chargé statiquement -->
+    <script src="script.js"></script>
+</body>
+</html>
+
