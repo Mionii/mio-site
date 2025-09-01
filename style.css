@@ -289,7 +289,6 @@ body {
 
 /* --- Page d'accueil --- */
 .home-card {
-    width: 100%;
     max-width: 42rem; /* max-w-2xl */
     margin-left: auto;
     margin-right: auto;
