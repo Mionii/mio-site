@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { src: 'images/mio5.png', className: 'object-pos-custom' },
                 { src: 'images/mio6.png' },
                 { src: 'images/mio7.2.png' },
+                { src: 'images/Mio8.2.png' },
             ]
         }
     };
