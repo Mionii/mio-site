@@ -154,25 +154,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const clickSound = document.getElementById('click-sound');
     const titleLink = document.querySelector('header nav a');
 
-    function unlockAllAudio() {
-        if (clickSound) {
+    // NOUVEAU : Variable pour suivre l'état du déverrouillage audio
+    let isAudioUnlocked = false;
+
+    // MODIFIÉ : La fonction de déverrouillage est maintenant silencieuse
+    function unlockAudio() {
+        if (!isAudioUnlocked && clickSound) {
+            clickSound.volume = 0; // On met le volume à 0 pour que le son ne soit pas audible
             clickSound.play().then(() => {
                 clickSound.pause();
                 clickSound.currentTime = 0;
-            }).catch(() => {});
+                clickSound.volume = 0.5; // On remet le volume normal
+                isAudioUnlocked = true;
+                // On retire les écouteurs d'événements une fois le déverrouillage effectué
+                document.body.removeEventListener('click', unlockAudio);
+                document.body.removeEventListener('touchend', unlockAudio);
+            }).catch(() => {
+                // En cas d'erreur, on réessaiera au prochain clic
+                isAudioUnlocked = false; 
+            });
         }
-        document.body.removeEventListener('click', unlockAllAudio);
-        document.body.removeEventListener('touchend', unlockAllAudio);
     }
-    document.body.addEventListener('click', unlockAllAudio);
-    document.body.addEventListener('touchend', unlockAllAudio);
+    document.body.addEventListener('click', unlockAudio, { once: true });
+    document.body.addEventListener('touchend', unlockAudio, { once: true });
 
+
+    // MODIFIÉ : La fonction de lecture du son vérifie si l'audio est déverrouillé
     function playClickSound() {
-        if (clickSound) {
-            clickSound.volume = 0.5;
+        if (clickSound && isAudioUnlocked) {
             clickSound.currentTime = 0;
             const playPromise = clickSound.play();
             if (playPromise !== undefined) {
+                // L'erreur AbortError ne devrait plus se produire ici
                 playPromise.catch(error => console.error("Erreur de lecture audio :", error));
             }
         }
@@ -413,4 +426,3 @@ document.addEventListener('DOMContentLoaded', () => {
     dragHandle.addEventListener('mousedown', startDrag);
     dragHandle.addEventListener('touchstart', startDrag);
 });
-
