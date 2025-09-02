@@ -48,16 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const galleries = {
         mio: {
-            icon: 'images/miohome.png',
+            icon: 'images/miohome.Webp',
             images: [
-                { src: 'images/mio1.png' },
-                { src: 'images/mio2.png' },
-                { src: 'images/mio3.png' },
-                { src: 'images/mio4.png' },
-                { src: 'images/mio5.png', className: 'object-pos-custom' },
-                { src: 'images/mio6.png' },
-                { src: 'images/mio7.2.png' },
-                { src: 'images/Mio8.2.png' },
+                { src: 'images/mio1.Webp' },
+                { src: 'images/mio2.Webp' },
+                { src: 'images/mio3.Webp' },
+                { src: 'images/mio4.Webp' },
+                { src: 'images/mio5.Webp', className: 'object-pos-custom' },
+                { src: 'images/mio6.Webp' },
+                { src: 'images/mio7.2.Webp' },
+                { src: 'images/Mio8.2.Webp' },
             ]
         }
     };
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="home-card">
                     <div class="home-card-content">
                         <div class="profile-pic-container">
-                            <img src="images/miohome.png" alt="Profile Picture" class="profile-pic">
+                            <img src="images/miohome.Webp" alt="Profile Picture" class="profile-pic">
                         </div>
                         <div class="profile-text">
                             <h1 class="profile-title">Mio</h1>
