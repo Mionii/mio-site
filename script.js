@@ -56,19 +56,21 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const galleries = {
         mio: {
-            icon: 'images/miohomeprofilepic.Webp',
+            // CORRECTION : Chemin d'accès corrigé avec / et .webp en minuscules
+            icon: 'images/miohomeprofilepic.webp',
             images: [
-                { src: 'images/mio1.Webp' },
-                { src: 'images/mio2.Webp' },
-                { src: 'images/mio3.Webp' },
-                { src: 'images/mio4.Webp' },
-                { src: 'images/mio5.Webp', className: 'object-pos-custom' },
-                { src: 'images/mio6.Webp' },
-                { src: 'images/mio7.2.Webp' },
-                { src: 'images/Mio8.2.Webp' },
-                { src: 'images/Mio9.2.Webp' },
-                { src: 'images/mio10.2.Webp' },
-                { src: 'images/mio11.2.Webp' },
+                // CORRECTION : Tous les chemins d'accès ont été corrigés.
+                { src: 'images/mio1.webp' },
+                { src: 'images/mio2.webp' },
+                { src: 'images/mio3.webp' },
+                { src: 'images/mio4.webp' },
+                { src: 'images/mio5.webp', className: 'object-pos-custom' },
+                { src: 'images/mio6.webp' },
+                { src: 'images/mio7.2.webp' },
+                { src: 'images/Mio8.2.webp' },
+                { src: 'images/Mio9.2.webp' },
+                { src: 'images/mio10.2.webp' },
+                { src: 'images/mio11.2.webp' },
             ]
         }
     };
@@ -123,7 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="home-card">
                     <div class="home-card-content">
                         <div class="profile-pic-container">
-                            <img src="images/miohomeprofilepic.Webp" alt="Profile Picture" class="profile-pic">
+                            <!-- CORRECTION : Chemin d'accès corrigé avec / et .webp en minuscules -->
+                            <img src="images/miohomeprofilepic.webp" alt="Profile Picture" class="profile-pic">
                         </div>
                         <div class="profile-text">
                             <h1 class="profile-title">Mio</h1>
@@ -417,3 +420,4 @@ document.addEventListener('DOMContentLoaded', () => {
     dragHandle.addEventListener('mousedown', startDrag);
     dragHandle.addEventListener('touchstart', startDrag);
 });
+
