@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const galleries = {
         mio: {
-            icon: 'images/miohome.Webp',
+            icon: 'images/miohomeprofilepic.Webp',
             images: [
                 { src: 'images/mio1.Webp' },
                 { src: 'images/mio2.Webp' },
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="home-card">
                     <div class="home-card-content">
                         <div class="profile-pic-container">
-                            <img src="images/miohome.Webp" alt="Profile Picture" class="profile-pic">
+                            <img src="images/miohomeprofilepic.Webp" alt="Profile Picture" class="profile-pic">
                         </div>
                         <div class="profile-text">
                             <h1 class="profile-title">Mio</h1>
