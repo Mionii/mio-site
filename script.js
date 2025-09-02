@@ -16,6 +16,7 @@ let player;
 // 4. Cette fonction globale est appelée par l'API une fois le script téléchargé.
 //    Comme notre code est déjà chargé, cette fonction existera toujours à temps.
 function onYouTubeIframeAPIReady() {
+    const videoId = 'MGtKETJIcZs';
   player = new YT.Player('youtube-player', {
     height: '100%',
     width: '100%',
@@ -25,7 +26,7 @@ function onYouTubeIframeAPIReady() {
       'loop': 1,
       // CORRECTION : Le paramètre 'playlist' est requis pour que 'loop' fonctionne.
       // On lui passe l'ID de la vidéo elle-même pour créer une playlist d'un seul élément.
-      'playlist': MGtKETJIcZs,
+      'playlist': videoId,
       'iv_load_policy': 3,   // Masque les annotations vidéo
       'modestbranding': 1,   // Réduit le logo YouTube
       'rel': 0               // Empêche les vidéos recommandées d'autres chaînes à la fin
