@@ -3,16 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+      VERSION FINALE : La CSP est maintenant sécurisée.
+      'unsafe-inline' a été retiré de script-src pour une protection maximale.
+    -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self'; 
+        script-src 'self' https://www.youtube.com https://s.ytimg.com; 
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+        font-src https://fonts.gstatic.com; 
+        img-src 'self' data:; 
+        media-src https://www.soundjay.com; 
+        frame-src https://www.youtube.com;
+    ">
     <meta name="description" content="Bienvenue dans le refuge créatif de Mio. Explorez une galerie d'images et de créations uniques dans une ambiance relaxante. Découvrez un univers artistique apaisant.">
     <title>Mio</title>
-    <!-- Importation de la police Quicksand depuis Google Fonts -->
+    <!-- Connexion préemptive aux domaines des polices pour accélérer le chargement -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!--
+      CORRECTION LIGHTHOUSE : Chargement non-bloquant de la police.
+      L'attribut 'onload' a été retiré. L'activation se fait maintenant dans script.js.
+    -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" as="style" id="quicksand-font">
+    <!-- Fallback pour les navigateurs où JavaScript est désactivé -->
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"></noscript>
+
     <!-- Lien vers votre feuille de style personnalisée -->
     <link rel="stylesheet" href="style.css">
     <!-- Ajout de la favicon -->
-    <link rel="icon" type="image/Webp" href="images\miohomefavicon.Webp">
+    <link rel="icon" type="image/webp" href="images/miohomefavicon.webp">
 </head>
 <body>
 
@@ -33,7 +54,7 @@
         <header class="main-header">
             <nav class="main-nav container">
                 <a href="#" class="logo-link">
-                    <img src="images\miohomeprofilepic.Webp" alt="Mio Logo" class="logo-img">
+                    <img src="images/miohomeprofilepic.webp" alt="Mio Logo" class="logo-img">
                     <span>Mio</span>
                 </a>
 
@@ -51,7 +72,7 @@
                     </button>
                 </div>
             </nav>
-            
+
             <!-- Menu Mobile -->
             <div id="mobile-menu">
                 <div class="mobile-menu-content">

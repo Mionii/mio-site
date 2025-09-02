@@ -43,6 +43,14 @@ function onPlayerReady(event) {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Application de la police Google Fonts pré-chargée ---
+    const fontLink = document.getElementById('quicksand-font');
+    if (fontLink) {
+        // En changeant le 'rel', on demande au navigateur d'appliquer la feuille de style
+        // qui a déjà été téléchargée en arrière-plan grâce à "preload".
+        fontLink.rel = 'stylesheet';
+    }
+
     // --- Configuration de la Galerie ---
     const IMAGES_PER_PAGE = 12;
     
