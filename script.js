@@ -29,7 +29,8 @@ function onYouTubeIframeAPIReady() {
       'playlist': videoId,
       'iv_load_policy': 3,   // Masque les annotations vidéo
       'modestbranding': 1,   // Réduit le logo YouTube
-      'rel': 0               // Empêche les vidéos recommandées d'autres chaînes à la fin
+      'rel': 0,               // Empêche les vidéos recommandées d'autres chaînes à la fin
+      'origin': 'https://mionii.github.io',
     },
     events: {
       'onReady': onPlayerReady
