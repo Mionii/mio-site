@@ -19,11 +19,13 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('youtube-player', {
     height: '100%',
     width: '100%',
-    videoId: 'MGtKETJIcZs',
     playerVars: {
       'autoplay': 1,
       'controls': 0,
       'loop': 1,
+      // CORRECTION : Le paramètre 'playlist' est requis pour que 'loop' fonctionne.
+      // On lui passe l'ID de la vidéo elle-même pour créer une playlist d'un seul élément.
+      'playlist': MGtKETJIcZs,
       'iv_load_policy': 3,   // Masque les annotations vidéo
       'modestbranding': 1,   // Réduit le logo YouTube
       'rel': 0               // Empêche les vidéos recommandées d'autres chaînes à la fin
