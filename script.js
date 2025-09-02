@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 { src: 'images/mio5.webp', className: 'object-pos-custom' },
                 { src: 'images/mio6.webp' },
                 { src: 'images/mio7.2.webp' },
-                { src: 'images/Mio8.2.webp' },
-                { src: 'images/Mio9.2.webp' },
+                { src: 'images/mio8.2.webp' },
+                { src: 'images/mio9.2.webp' },
                 { src: 'images/mio10.2.webp' },
                 { src: 'images/mio11.2.webp' },
             ]
