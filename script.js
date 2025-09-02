@@ -56,21 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const galleries = {
         mio: {
-            // CORRECTION : Chemin d'accès corrigé avec / et .webp en minuscules
             icon: 'images/miohomeprofilepic.webp',
             images: [
-                // CORRECTION : Tous les chemins d'accès ont été corrigés.
                 { src: 'images/mio1.webp' },
                 { src: 'images/mio2.webp' },
                 { src: 'images/mio3.webp' },
                 { src: 'images/mio4.webp' },
                 { src: 'images/mio5.webp', className: 'object-pos-custom' },
                 { src: 'images/mio6.webp' },
-                { src: 'images/mio7.2.webp' },
-                { src: 'images/mio8.2.webp' },
-                { src: 'images/mio9.2.webp' },
-                { src: 'images/mio10.2.webp' },
-                { src: 'images/mio11.2.webp' },
             ]
         }
     };
