@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { src: 'images/mio18.webp' },
                 { src: 'images/mio19.webp' },
                 { src: 'images/mio20.webp' },
+                { src: 'images/mio21.webp' },
             ]
         }
     };
