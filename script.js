@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Configuration de la Galerie ---
-    const IMAGES_PER_PAGE = 12;
+    const IMAGES_PER_PAGE = 40;
     
     const galleries = {
         mio: {
@@ -68,6 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 { src: 'images/mio4.webp' },
                 { src: 'images/mio5.webp', className: 'object-pos-custom' },
                 { src: 'images/mio6.webp' },
+                { src: 'images/mio7.webp' },
+                { src: 'images/mio8.webp' },
+                { src: 'images/mio9.webp' },
+                { src: 'images/mio10.webp' },
+                { src: 'images/mio11.webp' },
+                { src: 'images/mio12.webp' },
+                { src: 'images/mio13.webp' },
+                { src: 'images/mio14.webp' },
+                { src: 'images/mio15.webp' },
+                { src: 'images/mio16.webp' },
+                { src: 'images/mio17.webp' },
+                { src: 'images/mio18.webp' },
+                { src: 'images/mio19.webp' },
+                { src: 'images/mio20.webp' },
             ]
         }
     };
