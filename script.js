@@ -1,20 +1,10 @@
-// --- Procédure de chargement fiable pour l'API YouTube ---
-// 1. On crée une balise <script> dynamiquement.
 const tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
-// 2. On trouve la première balise <script> de la page.
 const firstScriptTag = document.getElementsByTagName('script')[0];
-// 3. On insère notre nouvelle balise AVANT la première, pour lancer le chargement.
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-
-// --- Initialisation du lecteur YouTube via l'API IFrame ---
-
-// La variable `player` est déclarée ici pour être accessible globalement dans ce script.
 let player;
 
-// 4. Cette fonction globale est appelée par l'API une fois le script téléchargé.
-//    Comme notre code est déjà chargé, cette fonction existera toujours à temps.
 function onYouTubeIframeAPIReady() {
     const videoId = 'MGtKETJIcZs';
   player = new YT.Player('youtube-player', {
@@ -24,12 +14,10 @@ function onYouTubeIframeAPIReady() {
       'autoplay': 1,
       'controls': 0,
       'loop': 1,
-      // CORRECTION : Le paramètre 'playlist' est requis pour que 'loop' fonctionne.
-      // On lui passe l'ID de la vidéo elle-même pour créer une playlist d'un seul élément.
       'playlist': videoId,
-      'iv_load_policy': 3,   // Masque les annotations vidéo
-      'modestbranding': 1,   // Réduit le logo YouTube
-      'rel': 0,               // Empêche les vidéos recommandées d'autres chaînes à la fin
+      'iv_load_policy': 3,
+      'modestbranding': 1,
+      'rel': 0,
       'origin': 'https://mionii.github.io',
     },
     events: {
@@ -38,24 +26,18 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
-// 5. Cette fonction s'exécute une fois le lecteur vidéo prêt.
 function onPlayerReady(event) {
   event.target.setVolume(25);
   event.target.playVideo();
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Application de la police Google Fonts pré-chargée ---
     const fontLink = document.getElementById('quicksand-font');
     if (fontLink) {
-        // En changeant le 'rel', on demande au navigateur d'appliquer la feuille de style
-        // qui a déjà été téléchargée en arrière-plan grâce à "preload".
         fontLink.rel = 'stylesheet';
     }
 
-    // --- Configuration de la Galerie ---
     const IMAGES_PER_PAGE = 40;
     
     const galleries = {
@@ -137,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="home-card">
                     <div class="home-card-content">
                         <div class="profile-pic-container">
-                            <!-- CORRECTION : Chemin d'accès corrigé avec / et .webp en minuscules -->
                             <img src="images/miohomeprofilepic.webp" alt="Profile Picture" class="profile-pic">
                         </div>
                         <div class="profile-text">
@@ -173,23 +154,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const clickSound = document.getElementById('click-sound');
     const titleLink = document.querySelector('header nav a');
 
-    // NOUVEAU : Variable pour suivre l'état du déverrouillage audio
     let isAudioUnlocked = false;
 
-    // MODIFIÉ : La fonction de déverrouillage est maintenant silencieuse
     function unlockAudio() {
         if (!isAudioUnlocked && clickSound) {
-            clickSound.volume = 0; // On met le volume à 0 pour que le son ne soit pas audible
+            clickSound.volume = 0;
             clickSound.play().then(() => {
                 clickSound.pause();
                 clickSound.currentTime = 0;
-                clickSound.volume = 0.5; // On remet le volume normal
+                clickSound.volume = 0.5;
                 isAudioUnlocked = true;
-                // On retire les écouteurs d'événements une fois le déverrouillage effectué
                 document.body.removeEventListener('click', unlockAudio);
                 document.body.removeEventListener('touchend', unlockAudio);
             }).catch(() => {
-                // En cas d'erreur, on réessaiera au prochain clic
                 isAudioUnlocked = false; 
             });
         }
@@ -197,14 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.addEventListener('click', unlockAudio, { once: true });
     document.body.addEventListener('touchend', unlockAudio, { once: true });
 
-
-    // MODIFIÉ : La fonction de lecture du son vérifie si l'audio est déverrouillé
     function playClickSound() {
         if (clickSound && isAudioUnlocked) {
             clickSound.currentTime = 0;
             const playPromise = clickSound.play();
             if (playPromise !== undefined) {
-                // L'erreur AbortError ne devrait plus se produire ici
                 playPromise.catch(error => console.error("Erreur de lecture audio :", error));
             }
         }
@@ -334,6 +308,22 @@ document.addEventListener('DOMContentLoaded', () => {
         
         contentArea.innerHTML = contentHTML;
 
+        if (page === 'home') {
+            const profilePic = document.querySelector('.profile-pic');
+            if (profilePic) {
+                profilePic.addEventListener('click', () => {
+                    if (profilePic.classList.contains('clicked')) return;
+                    
+                    playClickSound();
+                    profilePic.classList.add('clicked');
+
+                    profilePic.addEventListener('animationend', () => {
+                        profilePic.classList.remove('clicked');
+                    }, { once: true });
+                });
+            }
+        }
+
         allNavButtons.forEach(button => {
             button.classList.remove('active');
             if (button.dataset.page === page) {
@@ -359,7 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             renderContent(page);
 
-            // Ajout du défilement vers le haut lorsque le bouton Gallery est cliqué
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
             if (mobileMenu.classList.contains('open')) {
