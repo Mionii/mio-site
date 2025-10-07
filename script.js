@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mio: {
             icon: 'images/miohomeprofilepic.webp',
             images: [
-                { src: 'images/mio1.webp' },
+                { src: 'images/mio22.webp' },
                 { src: 'images/mio2.webp' },
                 { src: 'images/mio3.webp' },
                 { src: 'images/mio4.webp' },
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { src: 'images/mio19.webp' },
                 { src: 'images/mio20.webp' },
                 { src: 'images/mio21.webp' },
-                { src: 'images/mio22.webp' },
+                { src: 'images/mio1.webp' },
             ]
         }
     };
